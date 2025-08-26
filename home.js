@@ -22,79 +22,81 @@ function setInnerText(value) {
   availableBalance.innerText = value;
 }
 
+// set to handle toggle
+function handleToggle(id) {
+  const allsections = document.getElementsByClassName('form');
+  for (const section of allsections) {
+    section.style.display = 'none';
+  }
+  document.getElementById(id).style.display = 'block';
+}
+
+function handleToggleBtn(id) {
+  const btns = document.getElementsByClassName('form-btn');
+  for (const btn of btns) {
+    btn.classList.remove('border-blue-500', 'bg-blue-50');
+    btn.classList.add('border-gray-400');
+  }
+  document.getElementById(id).classList.remove('border-gray-400');
+  document
+    .getElementById(id)
+    .classList.add('border-blue-500', 'bg-blue-50', 'text-[#080808b3]');
+}
+
 // Toggling feature section
 
 // add money
 document
   .getElementById('add-money-section')
   .addEventListener('click', function (e) {
-    const allsections = document.getElementsByClassName('form');
-    for (const section of allsections) {
-      section.style.display = 'none';
-    }
-    document.getElementById('add-money-parent').style.display = 'block';
+    handleToggle('add-money-parent');
+    handleToggleBtn('add-money-section');
   });
 
 //  Cash out
 document
   .getElementById('cash-out-section')
   .addEventListener('click', function (e) {
-    const allsections = document.getElementsByClassName('form');
-    for (const section of allsections) {
-      section.style.display = 'none';
-      section.style.background = 'none';
-    }
-    document.getElementById('cash-out-parent').style.display = 'block';
-    document.getElementById('cash-out-section').style.background = 'red';
+    handleToggle('cash-out-parent');
+    handleToggleBtn('cash-out-section');
   });
 
 //  Transfer Money
 document
   .getElementById('transfer-money-section')
   .addEventListener('click', function (e) {
-    const allsections = document.getElementsByClassName('form');
-    for (const section of allsections) {
-      section.style.display = 'none';
-    }
-    document.getElementById('transfer-money-parent').style.display = 'block';
+    handleToggle('transfer-money-parent');
+    handleToggleBtn('transfer-money-section');
   });
 
 // Get Bonus
 document
   .getElementById('get-bonus-section')
   .addEventListener('click', function (e) {
-    const allsections = document.getElementsByClassName('form');
-    for (const section of allsections) {
-      section.style.display = 'none';
-    }
-    document.getElementById('get-bonus-parent').style.display = 'block';
+    handleToggle('get-bonus-parent');
+    handleToggleBtn('get-bonus-section');
   });
 
 // pay bill
 document
   .getElementById('pay-bill-section')
   .addEventListener('click', function (e) {
-    const allsections = document.getElementsByClassName('form');
-    for (const section of allsections) {
-      section.style.display = 'none';
-    }
-    document.getElementById('pay-bill-parent').style.display = 'block';
+    handleToggle('pay-bill-parent');
+    handleToggleBtn('pay-bill-section');
   });
 
 // Transation Money
 document
   .getElementById('transaction-history-section')
   .addEventListener('click', function (e) {
-    const allsections = document.getElementsByClassName('form');
-    for (const section of allsections) {
-      section.style.display = 'none';
-    }
-    document.getElementById('transaction-history-parent').style.display =
-      'block';
+    handleToggle('transaction-history-parent');
+    handleToggleBtn('transaction-history-section');
   });
 
 // ======================================
 const pinDigit = 1234;
+const transactionData = [];
+
 // Add Money functionality
 document
   .getElementById('add-money-btn')
@@ -115,6 +117,12 @@ document
     }
     const totalAmaount = availableBalance + addAmount;
     setInnerText(totalAmaount);
+
+    const data = {
+      name: 'Add Mony',
+      date: new date().toLocaleDateString(),
+    };
+    transactionData.push(data);
   });
 
 //  Cash out functionality
@@ -191,3 +199,35 @@ document.getElementById('pay-btn').addEventListener('click', function (e) {
   const totalAmaount = availableBalance - payAmount;
   setInnerText(totalAmaount);
 });
+
+document
+  .getElementById('transaction-container')
+  .addEventListener('click', function () {
+    const transactionContainer = document.getElementById(
+      'transaction-container'
+    );
+    for (const data of transactionData) {
+      const div = document.createElement('div');
+      div.innerHTML = `
+    <div
+          class="flex justify-between items-center px-4 py-3 bg-white rounded-xl mb-3"
+        >
+          <div class="flex gap-3 items-center">
+            <div class="p-2 rounded-full bg-[#f4f5f7]">
+              <img src="./assets/wallet1.png" alt="" />
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-[#080808b3]"
+                >${data.name}</h3
+              >
+              <p class="text-sm font-normal text-[#080808b3]">${data.date}</p>
+            </div>
+          </div>
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+    `;
+
+      transactionContainer.appendChild(div);
+    }
+  });

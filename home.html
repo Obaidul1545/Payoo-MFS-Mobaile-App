@@ -66,7 +66,7 @@
       <div class="grid grid-cols-3 gap-4">
         <div
           id="add-money-section"
-          class="py-5 text-center border-1 border-gray-400 rounded-xl cursor-pointer"
+          class="py-5 text-center border-2 border-gray-400 rounded-xl cursor-pointer form-btn"
         >
           <img src="./assets/wallet1.png" alt="" class="mx-auto" />
           <p class="text-sm font-medium text-[#080808b3] mt-2">Add Money</p>
@@ -74,7 +74,7 @@
 
         <div
           id="cash-out-section"
-          class="py-5 text-center border-1 border-gray-400 rounded-xl cursor-pointer"
+          class="py-5 text-center border-2 border-gray-400 rounded-xl cursor-pointer form-btn"
         >
           <img src="./assets/send1.png" alt="" class="mx-auto" />
           <p class="text-sm font-medium text-[#080808b3] mt-2">Cashout</p>
@@ -82,7 +82,7 @@
 
         <div
           id="transfer-money-section"
-          class="py-5 text-center border-1 border-gray-400 rounded-xl cursor-pointer"
+          class="py-5 text-center border-2 border-gray-400 rounded-xl cursor-pointer form-btn"
         >
           <img src="./assets/money1.png" alt="" class="mx-auto" />
           <p class="text-sm font-medium text-[#080808b3] mt-2">
@@ -92,7 +92,7 @@
 
         <div
           id="get-bonus-section"
-          class="py-5 text-center border-1 border-gray-400 rounded-xl cursor-pointer"
+          class="py-5 text-center border-2 border-gray-400 rounded-xl cursor-pointer form-btn"
         >
           <img src="./assets/bonus1.png" alt="" class="mx-auto" />
           <p class="text-sm font-medium text-[#080808b3] mt-2">Get Bonus</p>
@@ -100,7 +100,7 @@
 
         <div
           id="pay-bill-section"
-          class="py-5 text-center border-1 border-gray-400 rounded-xl cursor-pointer"
+          class="py-5 text-center border-2 border-gray-400 rounded-xl cursor-pointer form-btn"
         >
           <img src="./assets/purse1.png" alt="" class="mx-auto" />
           <p class="text-sm font-medium text-[#080808b3] mt-2">Pay Bill</p>
@@ -108,7 +108,7 @@
 
         <div
           id="transaction-history-section"
-          class="py-5 text-center border-1 border-gray-400 rounded-xl cursor-pointer"
+          class="py-5 text-center border-2 border-gray-400 rounded-xl cursor-pointer form-btn"
         >
           <img src="./assets/transaction1.png" alt="" class="mx-auto" />
           <p class="text-sm font-medium text-[#080808b3] mt-2">Transactions</p>
@@ -374,39 +374,7 @@
       <h2 class="text-xl font-semibold text-[#080808] mb-4"
         >Transaction History</h2
       >
-      <div
-        class="flex justify-between items-center px-4 py-3 bg-white rounded-xl mb-3"
-      >
-        <div class="flex gap-3 items-center">
-          <div class="p-2 rounded-full bg-[#f4f5f7]">
-            <img src="./assets/wallet1.png" alt="" />
-          </div>
-          <div>
-            <h3 class="text-base font-semibold text-[#080808b3]"
-              >Electricity Bill</h3
-            >
-            <p class="text-sm font-normal text-[#080808b3]">Today 10:44 AM</p>
-          </div>
-        </div>
-
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-      </div>
-
-      <div
-        class="flex justify-between items-center px-4 py-3 bg-white rounded-xl mb-3"
-      >
-        <div class="flex gap-3 items-center">
-          <div class="p-2 rounded-full bg-[#f4f5f7]">
-            <img src="./assets/wallet1.png" alt="" />
-          </div>
-          <div>
-            <h3>Electricity Bill</h3>
-            <p>Today 10:44 AM</p>
-          </div>
-        </div>
-
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-      </div>
+      <div id="transaction-container"> </div>
     </section>
 
     <!-- home script js  -->
