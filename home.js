@@ -120,7 +120,7 @@ document
 
     const data = {
       name: 'Add Mony',
-      date: new date().toLocaleDateString(),
+      date: new Date().toLocaleTimeString(),
     };
     transactionData.push(data);
   });
@@ -143,6 +143,12 @@ document.getElementById('Withdraw-btn').addEventListener('click', function (e) {
   }
   const totalAmaount = availableBalance - withdrawAmount;
   setInnerText(totalAmaount);
+
+  const data = {
+    name: 'Cash Out',
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 //  Transfer Money functionality
@@ -163,6 +169,12 @@ document.getElementById('transfer-btn').addEventListener('click', function (e) {
   }
   const totalAmaount = availableBalance - transferAmount;
   setInnerText(totalAmaount);
+
+  const data = {
+    name: 'Transfer Money',
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 // Get Bonus functionality
@@ -178,6 +190,12 @@ document.getElementById('bonus-btn').addEventListener('click', function (e) {
   }
   const totalAmaount = availableBalance + couponBonus;
   setInnerText(totalAmaount);
+
+  const data = {
+    name: 'Get Bonus',
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
 });
 
 // Pay Bill functionality
@@ -198,14 +216,25 @@ document.getElementById('pay-btn').addEventListener('click', function (e) {
   }
   const totalAmaount = availableBalance - payAmount;
   setInnerText(totalAmaount);
+
+  const data = {
+    name: 'Pay Bill',
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionData.push(data);
+
+  //  uncomplete
 });
 
+// transaction functionality
+
 document
-  .getElementById('transaction-container')
+  .getElementById('transaction-history-section')
   .addEventListener('click', function () {
     const transactionContainer = document.getElementById(
       'transaction-container'
     );
+    transactionContainer.innerText = '';
     for (const data of transactionData) {
       const div = document.createElement('div');
       div.innerHTML = `
@@ -227,7 +256,6 @@ document
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
     `;
-
       transactionContainer.appendChild(div);
     }
   });
